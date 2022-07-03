@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Import Fonts*/
+@font-face {
+  font-family: "EF_hyunygothic";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-01@1.0/EF_hyunygothic.woff2")
+    format("woff2");
+}
+
+/* html, body, heading */
+@layer base {
+  body {
+    @apply m-0 p-0 box-border font-body;
+  }
+}
+
+/* custom classNames */
+@layer components {
+}
