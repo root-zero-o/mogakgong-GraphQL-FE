@@ -10,6 +10,7 @@
     "moment": "^2.29.3",
     "next": "latest",
     "react": "18.1.0",
+    "react-device-detect": "^2.2.2",
     "react-dom": "18.1.0",
     "react-hook-form": "^7.33.1",
     "react-query": "^3.39.1"
