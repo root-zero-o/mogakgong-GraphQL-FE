@@ -1,6 +1,9 @@
 import React from "react";
+import { useRouter } from "next/router";
 
 const main = () => {
+  const router = useRouter();
+
   return (
     <div className="wrapper h-full bg-ivory overflow-hidden relative">
       <div className="flex flex-col mt-8 text-25">
@@ -8,19 +11,34 @@ const main = () => {
         <span>오늘도 열공해볼까요?</span>
       </div>
 
-      <div className="circle shadow-2xl absolute left-[15px] top-[20%] w-[170px] h-[170px] bg-green_light text-4xl">
+      <div
+        className="circle shadow-2xl absolute left-[15px] top-[20%] w-[170px] h-[170px] bg-green_light text-4xl"
+        onClick={() => router.push("/studyList")}
+      >
         <span>나의</span>
         <span>스터디</span>
       </div>
-      <div className="circle shadow-2xl absolute right-[-40px] top-[30%] w-[220px] h-[220px] bg-green_mid text-4xl">
+
+      <div
+        className="circle shadow-2xl absolute right-[-40px] top-[30%] w-[220px] h-[220px] bg-green_mid text-4xl"
+        onClick={() => router.push("/timeCheck")}
+      >
         <span>공부시간</span>
         <span>측정</span>
       </div>
-      <div className="circle shadow-2xl absolute left-[-40px] bottom-[10%] w-[280px] h-[280px] bg-green_deep text-4xl">
+
+      <div
+        className="circle shadow-2xl absolute left-[-40px] bottom-[10%] w-[280px] h-[280px] bg-green_deep text-4xl"
+        onClick={() => router.push("/todoList")}
+      >
         <span>나의 할일</span>
         <span>관리하기</span>
       </div>
-      <div className="circle shadow-2xl absolute right-[-10px] bottom-[-20px] w-[180px] h-[180px] bg-green_mid text-4xl">
+
+      <div
+        className="circle shadow-2xl absolute right-[-10px] bottom-[-20px] w-[180px] h-[180px] bg-green_mid text-4xl"
+        onClick={() => router.push("/myPage")}
+      >
         <span>마이</span>
         <span>페이지</span>
       </div>
