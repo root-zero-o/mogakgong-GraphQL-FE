@@ -18,4 +18,10 @@
 
 /* custom classNames */
 @layer components {
+  .circle {
+    @apply absolute rounded-full shadow-lg flex flex-col justify-center items-center;
+  }
+  .circleHover {
+    @apply hover:bg-opacity-80 hover:cursor-pointer transition-all;
+  }
 }
