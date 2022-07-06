@@ -1,11 +1,10 @@
 import "../styles/globals.css";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { ReactQueryDevtools } from "react-query/devtools"
+import { ReactQueryDevtools } from "react-query/devtools";
 import type { AppProps } from "next/app";
 import DeviceDetect from "../lib/DeviceDetect";
 
 function MyApp({ Component, pageProps }: AppProps) {
-
   const queryClient = new QueryClient();
 
   return (
@@ -13,9 +12,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       <DeviceDetect>
         <Component {...pageProps} />
       </DeviceDetect>
-      <ReactQueryDevtools/>
+      <ReactQueryDevtools />
     </QueryClientProvider>
-  )
+  );
 }
 
 export default MyApp;
