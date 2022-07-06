@@ -12,8 +12,8 @@ function MyApp({ Component, pageProps }: AppProps) {
     <QueryClientProvider client={queryClient}>
       <DeviceDetect>
         <Component {...pageProps} />
-        <ReactQueryDevtools/>
       </DeviceDetect>
+      <ReactQueryDevtools/>
     </QueryClientProvider>
   )
 }
