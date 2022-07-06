@@ -14,14 +14,32 @@
   body {
     @apply m-0 p-0 box-border font-body;
   }
+  h1 {
+    @apply text-4xl drop-shadow-md;
+  }
+  h2 {
+    @apply text-2xl drop-shadow-md;
+  }
+  input {
+    @apply p-5 rounded-2xl shadow-md;
+  }
 }
 
 /* custom classNames */
 @layer components {
+  .wrapper {
+    @apply relative w-full h-full text-center;
+  }
   .circle {
     @apply absolute rounded-full shadow-lg flex flex-col justify-center items-center;
   }
   .circleHover {
     @apply hover:bg-opacity-80 hover:cursor-pointer transition-all;
+  }
+  .submitBtn {
+    @apply w-[300px] py-5 rounded-2xl shadow-md;
+  }
+  .loginBtn {
+    @apply flex items-center justify-center mx-3 my-3 rounded-xl;
   }
 }
