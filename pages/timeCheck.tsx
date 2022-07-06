@@ -1,10 +1,7 @@
-import React, { useState } from "react";
+import useToggle from "../hooks/useToggle";
 
 const timeCheck = () => {
-  const [flag, setFlag] = useState(false);
-  const onStartHandler = () => {
-    setFlag((value) => !value);
-  };
+  const { flag, onStartHandler } = useToggle();
   return (
     <div className="wrapper h-full bg-green_mid overflow-scroll relative">
       <div className="flex flex-col items-center justify-center">
