@@ -6,7 +6,7 @@ const Home: NextPage = () => {
   const router = useRouter();
 
   return (
-    <div className="relative bg-ivory w-full h-full overflow-hidden">
+    <div className="wrapper bg-ivory overflow-hidden">
       <div className="circle left-[25px] top-[5px] w-[120px] h-[120px] bg-green_light"/>
       <div className="circle right-[-20px] top-[-20px] w-[180px] h-[180px] bg-green_deep"/>
       <div className="circle right-1/2 top-1/2 translate-x-1/2 -translate-y-1/2 w-[330px] h-[330px] bg-green_mid">
@@ -25,7 +25,7 @@ const Home: NextPage = () => {
         className="circle circleHover right-[30px] bottom-[-25px] w-[190px] h-[190px] bg-green_light"
         onClick={() => router.push("/login")}  
       >
-        <span className="text-4xl mt-2 ml-3">시작하기</span>
+        <span className="text-4xl">시작하기</span>
       </div>
     </div>
   );
