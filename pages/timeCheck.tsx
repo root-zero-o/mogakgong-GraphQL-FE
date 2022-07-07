@@ -34,6 +34,29 @@ const timeCheck = () => {
             <Controls setTimeInSeconds={setTime} />
           </div>
         </div>
+        <div>
+          <h2 className="mt-10 text-color text-black">이번주 공부시간 보기</h2>
+        </div>
+        <div className="flex flex-col items-center justify-center w-[320px] bg-white rounded-3xl mt-5">
+          <div className="flex flex-row items-center justify-center">
+            <div className="circle w-[50px] h-[50px] bg-green_deep m-2">
+              <h2 className="text-white">월</h2>
+            </div>
+            <h2 className="m-2 text-color text-black">00시간 00분 00초</h2>
+          </div>
+          <div className="flex flex-row items-center justify-center">
+            <div className="circle w-[50px] h-[50px] bg-green_deep m-2">
+              <h2 className="text-white">월</h2>
+            </div>
+            <h2 className="m-2 text-color text-black">00시간 00분 00초</h2>
+          </div>
+          <div className="flex flex-row items-center justify-center">
+            <div className="circle w-[50px] h-[50px] bg-green_deep m-2">
+              <h2 className="text-white">월</h2>
+            </div>
+            <h2 className="m-2 text-color text-black">00시간 00분 00초</h2>
+          </div>
+        </div>
       </div>
     </div>
   );
