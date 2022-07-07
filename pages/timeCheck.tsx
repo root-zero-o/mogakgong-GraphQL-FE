@@ -25,14 +25,14 @@ const timeCheck = () => {
         </div>
         <h2 className="mt-10 text-color text-white">오늘의 공부시간 측정</h2>
         <div className="flex flex-col items-center justify-center w-[320px] h-[180px] bg-white rounded-3xl mt-5">
-          <div className="h-[40%] flex flex-col items-center justify-start mt-6">
+          <div className="h-[30%] flex flex-col items-center justify-center mt-6">
             <h1>
               {timeArray[0]}:{timeArray[1]}:{timeArray[2]}
             </h1>
           </div>
-          <div className="h-[40%] flex flex-col items-center justify-center "></div>
-          <p></p>
-          <Controls setTimeInSeconds={setTime} />
+          <div className="h-[50%] flex flex-col items-center justify-center ">
+            <Controls setTimeInSeconds={setTime} />
+          </div>
         </div>
       </div>
     </div>
