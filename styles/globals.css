@@ -46,3 +46,8 @@
     @apply flex items-center hover justify-center mx-3 my-3 rounded-xl;
   }
 }
+
+/* remove scroll */
+::-webkit-scrollbar {
+  display: none;
+}
