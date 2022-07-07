@@ -1,7 +1,15 @@
-import useToggle from "../hooks/useToggle";
+import { useEffect, useState } from "react";
+import calculateTimer from "../lib/CalculateTimer";
+import Controls from "../lib/Control";
 
 const timeCheck = () => {
-  const { flag, onStartHandler } = useToggle();
+  const [time, setTime] = useState<number>(0);
+  const [timeArray, setTimeArray] = useState<Array<number | string>>([]);
+
+  useEffect(() => {
+    setTimeArray(calculateTimer(time));
+  }, [time]);
+
   return (
     <div className="wrapper h-full bg-green_mid overflow-scroll relative">
       <div className="flex flex-col items-center justify-center">
@@ -11,32 +19,20 @@ const timeCheck = () => {
         </div>
         <div className="flex flex-col items-center justify-center w-[260px] h-[129px] bg-white rounded-3xl mt-5">
           <div className="h-[100%] flex flex-col items-center justify-center">
-            <h1>1시간 1분 1초</h1>
+            <h1>시간from서버</h1>
           </div>
           <h2 className="text-20 text-red_deep -mt-10">목표시간 초과 달성</h2>
         </div>
         <h2 className="mt-10 text-color text-white">오늘의 공부시간 측정</h2>
         <div className="flex flex-col items-center justify-center w-[320px] h-[180px] bg-white rounded-3xl mt-5">
           <div className="h-[40%] flex flex-col items-center justify-start mt-6">
-            <h1>01:01:01</h1>
+            <h1>
+              {timeArray[0]}:{timeArray[1]}:{timeArray[2]}
+            </h1>
           </div>
-          <div className="h-[40%] flex flex-col items-center justify-center ">
-            {!flag ? (
-              <div
-                className="circle w-[70px] h-[70px] bg-red_light shadow-md"
-                onClick={onStartHandler}
-              >
-                <h3 className="text-white">Start</h3>
-              </div>
-            ) : (
-              <div
-                className="circle w-[70px] h-[70px] bg-green_deep shadow-md"
-                onClick={onStartHandler}
-              >
-                <h3 className="text-white">Stop</h3>
-              </div>
-            )}
-          </div>
+          <div className="h-[40%] flex flex-col items-center justify-center "></div>
+          <p></p>
+          <Controls setTimeInSeconds={setTime} />
         </div>
       </div>
     </div>
