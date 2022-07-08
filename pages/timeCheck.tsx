@@ -5,7 +5,7 @@ import Controls from "../lib/Control";
 
 const timeCheck = () => {
   const [time, setTime] = useState<number>(0);
-  const [timeArray, setTimeArray] = useState<Array<number | string>>([]);
+  const [timeArray, setTimeArray] = useState<Array<number>>([]);
 
   useEffect(() => {
     setTimeArray(calculateTimer(time));
@@ -29,7 +29,9 @@ const timeCheck = () => {
         <div className="flex flex-col items-center justify-center w-[320px] h-[180px] bg-white rounded-3xl mt-5">
           <div className="h-[30%] flex flex-col items-center justify-center mt-6">
             <h1>
-              {timeArray[0]}:{timeArray[1]}:{timeArray[2]}
+              {timeArray[0] < 10 ? `0${timeArray[0]}` : timeArray[0]} :
+              {timeArray[1] < 10 ? `0${timeArray[1]}` : timeArray[1]} :
+              {timeArray[2] < 10 ? `0${timeArray[2]}` : timeArray[2]}
             </h1>
           </div>
           <div className="h-[50%] flex flex-col items-center justify-center ">
