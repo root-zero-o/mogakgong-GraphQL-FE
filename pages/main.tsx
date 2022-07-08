@@ -1,49 +1,58 @@
-import React from "react";
-import { useRouter } from "next/router";
 import Seo from "../components/Seo";
+import MainCategory from "../components/MainCategory";
 
 const main = () => {
-  const router = useRouter();
-
   return (
     <div className="wrapper h-full bg-ivory overflow-hidden relative">
-      <Seo title="Main"/>
+      <Seo title="Main" />
       <div className="flex flex-col mt-8 text-25">
         <h3>안녕하세요 영근님!</h3>
         <h3>오늘도 열공해볼까요?</h3>
       </div>
 
-      <div
-        className="circle shadow-2xl absolute left-[15px] top-[20%] w-[170px] h-[170px] bg-green_light text-4xl"
-        onClick={() => router.push("/studyList")}
-      >
-        <h1>나의</h1>
-        <h1>스터디</h1>
-      </div>
+      <MainCategory
+        link="studyList"
+        left="15"
+        top="20"
+        w="170"
+        h="170"
+        bg="green_light"
+        f_Text="나의"
+        s_Text="스터디"
+      />
 
-      <div
-        className="circle shadow-2xl absolute right-[-40px] top-[30%] w-[220px] h-[220px] bg-green_mid text-4xl"
-        onClick={() => router.push("/timeCheck")}
-      >
-        <h1>공부시간</h1>
-        <h1>측정</h1>
-      </div>
+      <MainCategory
+        link="timeCheck"
+        right="-40"
+        top="30"
+        w="220"
+        h="220"
+        bg="green_mid"
+        f_Text="공부시간"
+        s_Text="측정"
+      />
 
-      <div
-        className="circle shadow-2xl absolute left-[-40px] bottom-[10%] w-[280px] h-[280px] bg-green_deep text-4xl"
-        onClick={() => router.push("/todoList")}
-      >
-        <h1>나의 할일</h1>
-        <h1>관리하기</h1>
-      </div>
+      <MainCategory
+        link="todoList"
+        left="-40"
+        bottom="10"
+        w="280"
+        h="280"
+        bg="green_deep"
+        f_Text="나의 할일"
+        s_Text="관리하기"
+      />
 
-      <div
-        className="circle shadow-2xl absolute right-[-10px] bottom-[-20px] w-[180px] h-[180px] bg-green_mid text-4xl"
-        onClick={() => router.push("/myPage")}
-      >
-        <h1>마이</h1>
-        <h1>페이지</h1>
-      </div>
+      <MainCategory
+        link="myPage"
+        right="-10"
+        bottomPx="-20"
+        w="180"
+        h="180"
+        bg="green_mid"
+        f_Text="마이"
+        s_Text="페이지"
+      />
     </div>
   );
 };
