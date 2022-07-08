@@ -5,6 +5,45 @@ import Seo from "../components/Seo";
 const Login = () => {
   const router = useRouter();
 
+  React.useEffect(() => {
+    const naver = (window as any).naver;
+    let naverLogin: any;
+
+    const login = () => {
+      naverLogin = new naver.LoginWithNaverId({
+        clientId: "qb8Kgjpv0y563H2VH_eI",
+        callbackUrl: "http://localhost:3000/socialSignUp",
+        isPopup: false,
+        loginButton: {
+          color: "green",
+          type: 3,
+          height: "60",
+        },
+      });
+      naverLogin.init();
+    };
+
+    const getToken = () => {
+      const hash = router.asPath.split("#")[1];
+      if (hash) {
+        const token = hash.split("=")[1].split("&")[0];
+        naverLogin.getLoginStatus((status: any) => {
+          if (status) {
+            console.log(naverLogin.user);
+          }
+          router.push({
+            pathname: "/naver",
+            query: {
+              token: token,
+            },
+          });
+        });
+      }
+    };
+    login();
+    getToken();
+  }, []);
+
   return (
     <div className="wrapper h-full bg-green_mid overflow-hidden">
       <Seo title="로그인" />
@@ -22,18 +61,18 @@ const Login = () => {
           처음이신가요?
         </h2>
         <div className="w-full h-2/3 grid grid-cols-2 px-10 py-2 ">
-          <div className="loginBtn bg-white">
+          <button className="loginBtn bg-white">
             구글
             <br /> 로그인
-          </div>
-          <div className="loginBtn bg-naver">
+          </button>
+          <button className="loginBtn bg-naver" id="naverIdLogin">
             네이버
             <br /> 로그인
-          </div>
-          <div className="loginBtn bg-kakao">
+          </button>
+          <button className="loginBtn bg-kakao">
             카카오
             <br /> 로그인
-          </div>
+          </button>
           <div
             className="loginBtn bg-green_deep"
             onClick={() => router.push("/signUp")}
