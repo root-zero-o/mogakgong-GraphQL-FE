@@ -1,11 +1,13 @@
 import React from "react";
 import { useRouter } from "next/router";
+import Seo from "../components/Seo";
 
 const main = () => {
   const router = useRouter();
 
   return (
     <div className="wrapper h-full bg-ivory overflow-hidden relative">
+      <Seo title="Main"/>
       <div className="flex flex-col mt-8 text-25">
         <h3>안녕하세요 영근님!</h3>
         <h3>오늘도 열공해볼까요?</h3>

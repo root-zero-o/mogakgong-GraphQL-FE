@@ -5,10 +5,8 @@ class MyDocument extends Document {
     return (
       <Html className="dark">
         <Head>
-          <title>모각공</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
-
         <body>
           <Main />
           <NextScript />

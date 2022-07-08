@@ -1,8 +1,11 @@
 import React from 'react'
+import { useForm } from 'react-hook-form';
+import Seo from '../components/Seo';
 
 const signUp = () => {
   return (
     <div className='wrapper bg-green_mid py-8'>
+        <Seo title="회원가입"/>
         <div className='circle z-0 absolute w-96 h-96 right-[-80px] top-[-40px] bg-green_light'/>
         <div className='circle z-0 absolute w-96 h-96 left-[-100px] bottom-4 bg-ivory'/>
         <form className="space-y-7 z-40">

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Seo from "../components/Seo";
 import calculateTimer from "../lib/CalculateTimer";
 import Controls from "../lib/Control";
 
@@ -12,6 +13,7 @@ const timeCheck = () => {
 
   return (
     <div className="wrapper h-full bg-green_mid overflow-scroll relative">
+      <Seo title="공부시간 측정"/>
       <div className="flex flex-col items-center justify-center">
         <div className="mt-12 ">
           <h1>공부시간 측정</h1>
