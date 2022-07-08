@@ -1,5 +1,6 @@
 import apis from "../api/main";
 import { User } from "../typings";
+import { useMutation } from "react-query";
 
 const useSignUp = ({ data }: { data: User }) => {
   const userData = {
@@ -10,12 +11,20 @@ const useSignUp = ({ data }: { data: User }) => {
     myHour: [Number(data.myHour), 0, 0],
     myText: data.myText,
   };
-  try {
-    apis.signUpUser(userData);
-    alert("회원가입이 완료되었습니다.");
-  } catch (error) {
-    alert("에러로 인해 회원가입에 실패했습니다. 로그인 화면으로 돌아갑니다.");
-  }
+
+  const addUser = async (userData: User) => {
+    const addUserDB = await apis.signUpUser(userData);
+    return addUserDB;
+  };
+
+  return useMutation(addUser, {
+    onSuccess: () => {
+      alert("회원가입이 완료되었습니다.");
+    },
+    onError: () => {
+      alert("오류로 인해 회원가입에 실패했습니다. 로그인 페이지로 돌아갑니다.");
+    },
+  });
 };
 
 export default useSignUp;

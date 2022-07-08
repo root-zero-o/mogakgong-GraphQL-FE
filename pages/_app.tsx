@@ -8,12 +8,14 @@ function MyApp({ Component, pageProps }: AppProps) {
   const queryClient = new QueryClient();
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <DeviceDetect>
-        <Component {...pageProps} />
-      </DeviceDetect>
-      <ReactQueryDevtools />
-    </QueryClientProvider>
+    <>
+      <QueryClientProvider client={queryClient}>
+        <DeviceDetect>
+          <Component {...pageProps} />
+        </DeviceDetect>
+        <ReactQueryDevtools />
+      </QueryClientProvider>
+    </>
   );
 }
 
