@@ -5,7 +5,7 @@ const studyList = () => {
   return (
     <div className="wrapper h-full bg-ivory overflow-scroll relative">
       <h1 className="mt-10">나의 스터디</h1>
-      <AddButton link="login" />
+      <AddButton link="addStudyList" />
       <StudyListContainer />
     </div>
   );
