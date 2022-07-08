@@ -20,4 +20,4 @@ export interface User {
   confirmPassword: string;
   myText: string;
   myHour: number[];
-};
+}
