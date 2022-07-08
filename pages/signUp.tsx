@@ -2,10 +2,9 @@ import React from "react";
 import { useForm, useFormState } from "react-hook-form";
 import Seo from "../components/Seo";
 import { User } from "../typings";
+import { RegCheck } from "../lib/RegCheck";
+import useSignUp from "../hooks/useSignUp";
 
-const EMAIL_PATTERN =
-  /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
-const PASSWORD_PATTERN = /^(?=.*[0-9])(?=.*[a-zA-z]).{8,16}$/;
 
 const signUp = () => {
   const {
@@ -33,15 +32,8 @@ const signUp = () => {
   const password = watch("password");
 
   const onSumbit = (data: User) => {
-    const userData = {
-      email: data.email,
-      nickname: data.nickname,
-      password: data.password,
-      confirmPassword: data.confirmPassword,
-      myHour: [Number(data.myHour), 0, 0],
-      myText: data.myText,
-    };
-    return userData;
+
+    useSignUp({ data });
   };
 
   return (
@@ -49,7 +41,11 @@ const signUp = () => {
       <Seo title="회원가입" />
       <div className="circle z-0 absolute w-96 h-96 right-[-80px] top-[-40px] bg-green_light" />
       <div className="circle z-0 absolute w-96 h-96 left-[-100px] bottom-4 bg-ivory" />
-      <form className="space-y-5 z-40" onSubmit={handleSubmit(onSumbit)}>
+      <form
+        className="space-y-5 z-40 w-4/5 mx-auto"
+        onSubmit={handleSubmit(onSumbit)}
+      >
+
         <h1>회원가입</h1>
         <label
           htmlFor="imgInput"
@@ -58,7 +54,7 @@ const signUp = () => {
           클릭 후<br />
           프로필 사진 선택
         </label>
-        <div className="z-40 flex flex-col justify-center items-center w-5/6">
+        <div className="z-40 flex flex-col justify-center items-center w-full">
           <input id="imgInput" type="file" className="hidden" />
           <input
             type="email"
@@ -66,7 +62,8 @@ const signUp = () => {
             placeholder="이메일 아이디"
             {...register("email", {
               required: true,
-              pattern: EMAIL_PATTERN,
+              pattern: RegCheck.EMAIL_PATTERN,
+
             })}
           />
           {errors.email?.type === undefined &&
@@ -83,11 +80,11 @@ const signUp = () => {
           )}
           {errors.email?.type === "required" && (
             <h3 className="mt-2 text-sm text-red_light">
-              이메일 주소를 입력해주세요.
+              사용하실이메일 주소를 입력해주세요.
             </h3>
           )}
         </div>
-        <div className="z-40 flex flex-col justify-center items-center w-5/6">
+        <div className="z-40 flex flex-col justify-center items-center w-full">
           <input
             type="text"
             placeholder="닉네임(1~4글자)"
@@ -115,7 +112,7 @@ const signUp = () => {
             </h3>
           )}
         </div>
-        <div className="z-40 flex flex-col justify-center items-center w-5/6">
+        <div className="z-40 flex flex-col justify-center items-center w-full">
           <input
             type="password"
             placeholder="비밀번호"
@@ -123,7 +120,7 @@ const signUp = () => {
               required: true,
               minLength: 8,
               maxLength: 16,
-              pattern: PASSWORD_PATTERN,
+              pattern: RegCheck.PASSWORD_PATTERN,
             })}
           />
           {errors.password?.type === undefined &&
@@ -155,7 +152,7 @@ const signUp = () => {
             </h3>
           )}
         </div>
-        <div className="z-40 flex flex-col justify-center items-center w-5/6">
+        <div className="z-40 flex flex-col justify-center items-center w-full">
           <input
             type="password"
             placeholder="비밀번호 확인"
@@ -187,13 +184,14 @@ const signUp = () => {
             </h3>
           )}
         </div>
-        <div className="z-40 flex flex-col justify-center items-center w-5/6">
+        <div className="z-40 flex flex-col justify-center items-center w-full">
           <input
             type="number"
             placeholder="목표 공부시간"
             {...register("myHour", {
               required: true,
               max: 999,
+              min: 1,
             })}
           />
           {errors.myHour?.type === undefined &&
@@ -209,13 +207,18 @@ const signUp = () => {
               목표시간은 최대 999시간까지 설정이 가능합니다.
             </h3>
           )}
+          {errors.myHour?.type === "min" && (
+            <h3 className="mt-2 text-sm text-red_light">
+              목표시간은 최소 1시간부터 설정이 가능합니다.
+            </h3>
+          )}
           {errors.myHour?.type === "required" && (
             <h3 className="mt-2 text-sm text-red_light">
               목표 공부시간을 설정해주세요.
             </h3>
           )}
         </div>
-        <div className="z-40 flex flex-col justify-center items-center w-5/6">
+        <div className="z-40 flex flex-col justify-center items-center w-full">
           <input
             type="text"
             placeholder="각오 한 마디(최대 20자)"
