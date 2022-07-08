@@ -2,9 +2,7 @@ import React from 'react'
 import { useForm, useFormState } from 'react-hook-form';
 import Seo from '../components/Seo';
 import { User } from "../typings";
-
-const EMAIL_PATTERN = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i
-const PASSWORD_PATTERN = /^(?=.*[0-9])(?=.*[a-zA-z]).{8,16}$/
+import { RegCheck } from "../lib/RegCheck";
 
 const signUp = () => {
 
@@ -59,14 +57,14 @@ const signUp = () => {
                 placeholder='이메일 아이디'
                 {...register("email", {
                     required: true,
-                    pattern: EMAIL_PATTERN
+                    pattern: RegCheck.EMAIL_PATTERN
                   }
                 )}
               />
               { (errors.email?.type === undefined && dirtyFields.email === undefined ) && <h3 className='mt-2 text-sm opacity-0'>준호님 바보</h3>}
               { (errors.email?.type === undefined && dirtyFields.email === true ) && <h3 className='mt-2 text-sm'>사용 가능한 이메일입니다.😎</h3>}
               { errors.email?.type === "pattern" && <h3 className='mt-2 text-sm text-red_light'>이메일 형식으로 입력해주세요.</h3>}
-              { errors.email?.type === "required" && <h3 className='mt-2 text-sm text-red_light'>이메일 주소를 입력해주세요.</h3>}
+              { errors.email?.type === "required" && <h3 className='mt-2 text-sm text-red_light'>사용하실이메일 주소를 입력해주세요.</h3>}
             </div>
             <div className='z-40 flex flex-col justify-center items-center w-5/6'>
               <input 
@@ -91,7 +89,7 @@ const signUp = () => {
                     required: true,
                     minLength: 8,
                     maxLength: 16,
-                    pattern: PASSWORD_PATTERN
+                    pattern: RegCheck.PASSWORD_PATTERN
                   }
                 )}
               />
