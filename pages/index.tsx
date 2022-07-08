@@ -2,12 +2,14 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import React from "react";
+import Seo from "../components/Seo";
 
 const Home: NextPage = () => {
   const router = useRouter();
 
   return (
     <div className="wrapper h-full bg-ivory overflow-hidden">
+      <Seo title="Home"/>
       <div className="circle shadow-lg absolute left-[25px] top-[5px] w-[120px] h-[120px] bg-green_light" />
       <div className="circle shadow-lg absolute right-[-20px] top-[-20px] w-[180px] h-[180px] bg-green_deep" />
       <div className="circle shadow-lg absolute right-1/2 top-1/2 translate-x-1/2 -translate-y-1/2 w-[330px] h-[330px] bg-green_mid">
