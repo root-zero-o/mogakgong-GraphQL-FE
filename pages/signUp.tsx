@@ -5,6 +5,7 @@ import { User } from "../typings";
 import { RegCheck } from "../lib/RegCheck";
 import useSignUp from "../hooks/useSignUp";
 
+
 const signUp = () => {
   const {
     register,
@@ -31,6 +32,7 @@ const signUp = () => {
   const password = watch("password");
 
   const onSumbit = (data: User) => {
+
     useSignUp({ data });
   };
 
@@ -43,6 +45,7 @@ const signUp = () => {
         className="space-y-5 z-40 w-4/5 mx-auto"
         onSubmit={handleSubmit(onSumbit)}
       >
+
         <h1>회원가입</h1>
         <label
           htmlFor="imgInput"
@@ -60,6 +63,7 @@ const signUp = () => {
             {...register("email", {
               required: true,
               pattern: RegCheck.EMAIL_PATTERN,
+
             })}
           />
           {errors.email?.type === undefined &&
