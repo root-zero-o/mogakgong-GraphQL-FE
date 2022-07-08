@@ -9,7 +9,7 @@ const Login = () => {
   return (
     <div className="wrapper h-full bg-green_mid overflow-hidden">
         <Seo title="로그인"/>
-        <form className="py-9 space-y-8">
+        <form className="my-14 space-y-7">
           <h1 className='mb-5'>로그인</h1>
           <input 
             type="text" 
