@@ -21,3 +21,8 @@ export interface User {
   myText: string;
   myHour: number[];
 }
+
+export interface SocialUser {
+  myText: string;
+  myHour: number[];
+}

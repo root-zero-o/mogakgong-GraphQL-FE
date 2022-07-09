@@ -1,9 +1,15 @@
 import React from "react";
 import { useForm, useFormState } from "react-hook-form";
-import { User } from "../typings";
+import { SocialUser } from "../typings";
+import { useRouter } from "next/router";
 import useSignUp from "../hooks/useSignUp";
+import useGetToken from "../hooks/useGetToken";
+import useUpdateUser from "../hooks/useUpdateUser";
 
 const socialSignUp = () => {
+  const router = useRouter();
+
+  useGetToken();
   const {
     register,
     handleSubmit,
@@ -21,8 +27,12 @@ const socialSignUp = () => {
     control,
   });
 
-  const onSumbit = (data: User) => {
-    useSignUp({ data });
+  const { mutate } = useUpdateUser();
+  const onSumbit = (data: SocialUser) => {
+    mutate({
+      myText: data.myText,
+      myHour: [Number(data.myHour), 0, 0],
+    });
   };
 
   return (
