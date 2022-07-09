@@ -1,6 +1,5 @@
 import { useRouter } from "next/router";
-import React from "react";
-import { useMutation, useQueryClient } from "react-query";
+import { useMutation } from "react-query";
 import apis from "../api/main";
 import { SocialUser } from "../typings";
 

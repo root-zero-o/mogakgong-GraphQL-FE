@@ -1,4 +1,5 @@
 import React from "react";
+import useNaverToken from "../../hooks/useNaverToken";
 
 const NaverLogin = () => {
   const naver = (window as any).naver;
@@ -14,6 +15,7 @@ const NaverLogin = () => {
     },
   });
   naverLogin.init();
+  useNaverToken();
 };
 
 export default NaverLogin;

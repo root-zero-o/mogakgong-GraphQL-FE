@@ -26,3 +26,7 @@ export interface SocialUser {
   myText: string;
   myHour: number[];
 }
+
+export interface AccessToken {
+  token: string;
+}
