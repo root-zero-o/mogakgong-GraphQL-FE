@@ -1,48 +1,13 @@
 import React from "react";
 import { useRouter } from "next/router";
 import Seo from "../components/Seo";
+import NaverLogin from "../api/socialLogin/NaverLogin";
 
 const Login = () => {
   const router = useRouter();
-
   React.useEffect(() => {
-    const naver = (window as any).naver;
-    let naverLogin: any;
-
-    const login = () => {
-      naverLogin = new naver.LoginWithNaverId({
-        clientId: "qb8Kgjpv0y563H2VH_eI",
-        callbackUrl: "http://localhost:3000/socialSignUp",
-        isPopup: false,
-        loginButton: {
-          color: "green",
-          type: 3,
-          height: "60",
-        },
-      });
-      naverLogin.init();
-    };
-
-    const getToken = () => {
-      const hash = router.asPath.split("#")[1];
-      if (hash) {
-        const token = hash.split("=")[1].split("&")[0];
-        naverLogin.getLoginStatus((status: any) => {
-          if (status) {
-            console.log(naverLogin.user);
-          }
-          router.push({
-            pathname: "/naver",
-            query: {
-              token: token,
-            },
-          });
-        });
-      }
-    };
-    login();
-    getToken();
-  }, []);
+    NaverLogin();
+  });
 
   return (
     <div className="wrapper h-full bg-green_mid overflow-hidden">
@@ -65,7 +30,7 @@ const Login = () => {
             구글
             <br /> 로그인
           </button>
-          <button className="loginBtn bg-naver" id="naverIdLogin">
+          <button className="loginBtn" id="naverIdLogin">
             네이버
             <br /> 로그인
           </button>
