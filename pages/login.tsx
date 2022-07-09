@@ -1,13 +1,9 @@
 import React from "react";
 import { useRouter } from "next/router";
 import Seo from "../components/Seo";
-import NaverLogin from "../api/socialLogin/NaverLogin";
 
 const Login = () => {
   const router = useRouter();
-  React.useEffect(() => {
-    NaverLogin();
-  });
 
   return (
     <div className="wrapper h-full bg-green_mid overflow-hidden">
@@ -30,7 +26,7 @@ const Login = () => {
             구글
             <br /> 로그인
           </button>
-          <button className="loginBtn" id="naverIdLogin">
+          <button className="loginBtn">
             네이버
             <br /> 로그인
           </button>
