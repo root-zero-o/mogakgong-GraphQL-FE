@@ -5,7 +5,6 @@ import { User } from "../typings";
 import { RegCheck } from "../lib/RegCheck";
 import useSignUp from "../hooks/useSignUp";
 
-
 const signUp = () => {
   const {
     register,
@@ -32,7 +31,6 @@ const signUp = () => {
   const password = watch("password");
 
   const onSumbit = (data: User) => {
-
     useSignUp({ data });
   };
 
@@ -45,7 +43,6 @@ const signUp = () => {
         className="space-y-5 z-40 w-4/5 mx-auto"
         onSubmit={handleSubmit(onSumbit)}
       >
-
         <h1>회원가입</h1>
         <label
           htmlFor="imgInput"
@@ -58,12 +55,11 @@ const signUp = () => {
           <input id="imgInput" type="file" className="hidden" />
           <input
             type="email"
-            className="invalid:border-2"
+            className="invalid:border-2 textInput"
             placeholder="이메일 아이디"
             {...register("email", {
               required: true,
               pattern: RegCheck.EMAIL_PATTERN,
-
             })}
           />
           {errors.email?.type === undefined &&
@@ -84,9 +80,10 @@ const signUp = () => {
             </h3>
           )}
         </div>
-        <div className="z-40 flex flex-col justify-center items-center w-full">
+        <div className="z-40 flex flex-col justify-center items-center w-full ">
           <input
             type="text"
+            className="textInput"
             placeholder="닉네임(1~4글자)"
             {...register("nickname", {
               required: true,
@@ -115,6 +112,7 @@ const signUp = () => {
         <div className="z-40 flex flex-col justify-center items-center w-full">
           <input
             type="password"
+            className="textInput"
             placeholder="비밀번호"
             {...register("password", {
               required: true,
@@ -155,6 +153,7 @@ const signUp = () => {
         <div className="z-40 flex flex-col justify-center items-center w-full">
           <input
             type="password"
+            className="textInput"
             placeholder="비밀번호 확인"
             {...register("confirmPassword", {
               required: true,
@@ -187,6 +186,7 @@ const signUp = () => {
         <div className="z-40 flex flex-col justify-center items-center w-full">
           <input
             type="number"
+            className="textInput"
             placeholder="목표 공부시간"
             {...register("myHour", {
               required: true,
@@ -221,6 +221,7 @@ const signUp = () => {
         <div className="z-40 flex flex-col justify-center items-center w-full">
           <input
             type="text"
+            className="textInput"
             placeholder="각오 한 마디(최대 20자)"
             {...register("myText", {
               required: true,

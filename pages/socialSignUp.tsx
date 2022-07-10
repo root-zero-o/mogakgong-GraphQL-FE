@@ -2,13 +2,11 @@ import React from "react";
 import { useForm, useFormState } from "react-hook-form";
 import { SocialUser } from "../typings";
 import { useRouter } from "next/router";
-import useGetToken from "../hooks/useNaverToken";
 import useUpdateUser from "../hooks/useUpdateUser";
 
 const socialSignUp = () => {
   const router = useRouter();
 
-  useGetToken();
   const {
     register,
     handleSubmit,
