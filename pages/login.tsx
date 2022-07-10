@@ -10,8 +10,18 @@ const Login = () => {
       <Seo title="로그인" />
       <form className="mx-auto my-14 space-y-7 w-4/5">
         <h1 className="mb-5">로그인</h1>
-        <input type="text" placeholder="이메일아이디" required />
-        <input type="password" placeholder="비밀번호" required />
+        <input
+          type="text"
+          placeholder="이메일아이디"
+          className="textInput"
+          required
+        />
+        <input
+          type="password"
+          placeholder="비밀번호"
+          className="textInput"
+          required
+        />
         <button className="submitBtn bg-ivory">
           <h2>공부 시작!</h2>
         </button>

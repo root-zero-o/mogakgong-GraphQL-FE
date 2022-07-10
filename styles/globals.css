@@ -20,9 +20,6 @@
   h2 {
     @apply text-2xl drop-shadow-md;
   }
-  input {
-    @apply appearance-none border-none w-full py-4 px-3 text-lg shadow-md rounded-xl z-40 focus:outline-none;
-  }
   textarea {
     @apply focus:outline-none;
   }
@@ -50,6 +47,9 @@
   }
   .inputDiv {
     @apply z-40 flex flex-col justify-center items-center w-full;
+  }
+  .textInput {
+    @apply appearance-none border-none w-full py-4 px-3 text-lg shadow-md rounded-xl z-40 focus:outline-none;
   }
 }
 
