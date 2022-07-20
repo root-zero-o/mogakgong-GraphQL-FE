@@ -1,21 +1,17 @@
 import "../styles/globals.css";
-import { QueryClient, QueryClientProvider } from "react-query";
-import { ReactQueryDevtools } from "react-query/devtools";
 import type { AppProps } from "next/app";
 import DeviceDetect from "../lib/DeviceDetect";
-import Head from "next/head";
+import { ApolloProvider } from "@apollo/client";
+import client from "../api/client";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const queryClient = new QueryClient();
-
   return (
     <>
-      <QueryClientProvider client={queryClient}>
+      <ApolloProvider client={client}>
         <DeviceDetect>
           <Component {...pageProps} />
         </DeviceDetect>
-        <ReactQueryDevtools />
-      </QueryClientProvider>
+      </ApolloProvider>
     </>
   );
 }
