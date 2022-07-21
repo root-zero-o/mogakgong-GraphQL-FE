@@ -1,18 +1,23 @@
 import { ApolloClient, gql, InMemoryCache } from "@apollo/client";
+import userInfo from "../store/user";
+
+const cache = new InMemoryCache({
+  typePolicies: {
+    Query: {
+      fields: {
+        getUserInfo: {
+          read() {
+            return userInfo();
+          },
+        },
+      },
+    },
+  },
+});
 
 const client = new ApolloClient({
   uri: "",
-  cache: new InMemoryCache(),
+  cache,
 });
-
-client
-  .query({
-    query: gql`  
-      {
-  
-      }
-    `,
-  })
-  .then((data) => console.log(data));
 
 export default client;
