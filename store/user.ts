@@ -103,16 +103,21 @@ export const checkValidation = (inputType: string, value: string) => {
       text: true,
     });
   }
+};
+
+export const checkFormValidation = () => {
+  const validation = userValidVar();
+
   if (
-    userValidation.email === true &&
-    userValidation.nickname === true &&
-    userValidation.password === true &&
-    userValidation.passwordCheck === true &&
-    userValidation.time === true &&
-    userValidation.text === true
+    validation.email === true &&
+    validation.nickname === true &&
+    validation.password === true &&
+    validation.passwordCheck === true &&
+    validation.time === true &&
+    validation.text === true
   ) {
     userValidVar({
-      ...userValidation,
+      ...validation,
       form: true,
     });
   }
