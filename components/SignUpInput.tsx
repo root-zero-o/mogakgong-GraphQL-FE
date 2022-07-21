@@ -2,9 +2,11 @@ import React, { useCallback } from "react";
 import { debounce } from "lodash";
 import { addUserInfo } from "../store/user";
 import Valid from "./ui/Valid";
-import { checkValidation } from "../store/user";
+import { checkValidation, checkFormValidation } from "../store/user";
 import Invalid from "./ui/Invalid";
 import useCheckValidation from "../hooks/useCheckValidation";
+import { useReactiveVar } from "@apollo/client";
+import { userValidVar } from "../store/user";
 
 function cls(...classnames: string[]) {
   return classnames.join(" ");
@@ -23,6 +25,7 @@ const SignupInput = ({
   const getValue = debounce((value) => {
     addUserInfo(inputType, value);
     checkValidation(inputType, value);
+    checkFormValidation();
   }, 500);
 
   const inputHandler = useCallback(

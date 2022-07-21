@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 import SignupInput from "./SignUpInput";
 import { useReactiveVar } from "@apollo/client";
 import { userValidVar } from "../store/user";
@@ -7,6 +7,7 @@ import { userValidVar } from "../store/user";
 
 const SignupForm = () => {
   const validation = useReactiveVar(userValidVar);
+
   return (
     <form className="space-y-5 z-40 w-4/5 mx-auto">
       <h1>회원가입</h1>
