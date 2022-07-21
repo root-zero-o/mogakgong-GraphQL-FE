@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React from "react";
 import SignupInput from "./SignUpInput";
 import { useReactiveVar } from "@apollo/client";
 import { userValidVar } from "../store/user";

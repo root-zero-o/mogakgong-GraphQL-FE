@@ -5,8 +5,6 @@ import Valid from "./ui/Valid";
 import { checkValidation, checkFormValidation } from "../store/user";
 import Invalid from "./ui/Invalid";
 import useCheckValidation from "../hooks/useCheckValidation";
-import { useReactiveVar } from "@apollo/client";
-import { userValidVar } from "../store/user";
 
 function cls(...classnames: string[]) {
   return classnames.join(" ");
@@ -26,7 +24,7 @@ const SignupInput = ({
     addUserInfo(inputType, value);
     checkValidation(inputType, value);
     checkFormValidation();
-  }, 500);
+  }, 300);
 
   const inputHandler = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
