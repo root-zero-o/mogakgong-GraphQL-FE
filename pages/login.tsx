@@ -13,13 +13,13 @@ const Login = () => {
         <input
           type="text"
           placeholder="이메일아이디"
-          className="textInput"
+          className="appearance-none w-full py-4 px-3 text-lg rounded-xl shadow-md z-40 border-2 border-black border-opacity-0 focus:border-black focus:border-opacity-0 focus:ring-0 placeholder:text-sm"
           required
         />
         <input
           type="password"
           placeholder="비밀번호"
-          className="textInput"
+          className="appearance-none w-full py-4 px-3 text-lg rounded-xl shadow-md z-40 border-2 border-black border-opacity-0 focus:border-black focus:border-opacity-0 focus:ring-0 placeholder:text-sm"
           required
         />
         <button className="submitBtn bg-ivory">
