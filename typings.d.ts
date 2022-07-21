@@ -22,11 +22,11 @@ export interface User {
   myHour: number[];
 }
 
-export interface SocialUser {
-  myText: string;
-  myHour: number[];
-}
-
-export interface AccessToken {
-  token: string;
+export interface SignupInfo {
+  email?: string;
+  nickname?: string;
+  password?: string;
+  passwordCheck?: string;
+  time?: string;
+  text?: string;
 }
