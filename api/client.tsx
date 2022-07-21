@@ -1,5 +1,6 @@
 import { ApolloClient, gql, InMemoryCache } from "@apollo/client";
-import userInfo from "../store/user";
+import userInfoVar from "../store/user";
+import userValidVar from "../store/user";
 
 const cache = new InMemoryCache({
   typePolicies: {
@@ -7,7 +8,12 @@ const cache = new InMemoryCache({
       fields: {
         getUserInfo: {
           read() {
-            return userInfo();
+            return userInfoVar();
+          },
+        },
+        getValid: {
+          read() {
+            return userValidVar();
           },
         },
       },
