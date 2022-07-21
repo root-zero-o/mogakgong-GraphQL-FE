@@ -37,19 +37,19 @@
     @apply rounded-full flex flex-col justify-center items-center;
   }
   .hover {
-    @apply hover:bg-opacity-80 hover:cursor-pointer transition-all;
+    @apply hover:shadow-lg hover:cursor-pointer transition-all;
   }
   .submitBtn {
     @apply w-full py-3 rounded-2xl hover shadow-md;
   }
   .loginBtn {
-    @apply flex items-center hover justify-center mx-3 my-3 rounded-xl;
+    @apply flex items-center justify-center mx-3 my-3 rounded-xl;
   }
   .inputDiv {
     @apply z-40 flex flex-col justify-center items-center w-full;
   }
   .textInput {
-    @apply appearance-none w-full py-4 px-3 text-lg shadow-md rounded-xl z-40 border-none focus:border-opacity-0 focus:ring-0;
+    @apply appearance-none w-5/6 py-4 px-3 text-lg rounded-l-xl z-40 border-2 border-black border-opacity-0 focus:border-black focus:border-opacity-0 focus:ring-0 placeholder:text-sm;
   }
 }
 
